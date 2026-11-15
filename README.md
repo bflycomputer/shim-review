@@ -235,7 +235,7 @@ Yes.
 Skip this, if you're not using GRUB2, otherwise do you have an entry in your GRUB2 binary similar to:  
 `grub,5,Free Software Foundation,grub,GRUB_UPSTREAM_VERSION,https://www.gnu.org/software/grub/`?
 *******************************************************************************
-The SBAT generation is set to [7](https://github.com/bflycomputer/pond-pkgbuilds/blob/main/grub/sbat.csv).
+The SBAT generation is set to [7](https://github.com/bflycomputer/pond-pkgbuilds/blob/main/grub/sbat.csv). GRUB 2.16 includes the November 2025 CVE patches and the September 2026 CVE patch, so our SBAT matches [upstream's current level](https://gitlab.freedesktop.org/gnu-grub/grub/-/commit/0f04137b2e127664bde4d2366d30814317d1d44c).
 
 *******************************************************************************
 ### Were old shims hashes provided to Microsoft for verification and to be added to future DBX updates?
