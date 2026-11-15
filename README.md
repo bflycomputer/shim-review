@@ -259,17 +259,22 @@ Yes.
 Hint: If it does not, we are not likely to sign your shim.
 *******************************************************************************
 CONFIG_LOCK_DOWN_IN_EFI_SECURE_BOOT=y enabled at buildtime in the PKGBUILD + 3 lockdown patches from Debian.
+
 https://github.com/bflycomputer/pond-pkgbuilds/blob/main/linux-pond/patches/efi-add-an-efi_secure_boot-flag-to-indicate-secure-b.patch
+
 https://github.com/bflycomputer/pond-pkgbuilds/blob/main/linux-pond/patches/efi-lock-down-the-kernel-if-booted-in-secure-boot-mo.patch
+
 https://github.com/bflycomputer/pond-pkgbuilds/blob/main/linux-pond/patches/mtd-disable-slram-and-phram-when-locked-down.patch
 
 *******************************************************************************
 ### Do you build your signed kernel with additional local patches? What do they do?
 *******************************************************************************
 Yes. Selected performance tweaks, mainline backports, and hardware fixes from the CachyOS kernel (and lockdown patches of course).
+
 See patches here (7.3):
 https://github.com/bflycomputer/pond-pkgbuilds/tree/main/linux-pond/patches
-LTS (6.18) kernel contains mainline patches + a subset of patches in the 7.3 kernel:
+
+LTS (6.18) kernel contains mainline patches + a subset of the 7.3 patches:
 https://github.com/bflycomputer/pond-pkgbuilds/tree/main/linux-pond-lts/patches
 
 NVIDIA's open kernel modules (out of tree) are built with the kernel, signed with the same ephemeral key.
