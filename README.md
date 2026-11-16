@@ -235,7 +235,7 @@ Yes.
 Skip this, if you're not using GRUB2, otherwise do you have an entry in your GRUB2 binary similar to:  
 `grub,5,Free Software Foundation,grub,GRUB_UPSTREAM_VERSION,https://www.gnu.org/software/grub/`?
 *******************************************************************************
-The SBAT generation is set to [7](https://github.com/bflycomputer/pond-pkgbuilds/blob/main/grub/sbat.csv). GRUB 2.16 includes the November 2025 CVE patches and the September 2026 CVE patch, so our SBAT matches [upstream's current level](https://gitlab.freedesktop.org/gnu-grub/grub/-/commit/0f04137b2e127664bde4d2366d30814317d1d44c).
+The SBAT generation is set to [7](https://github.com/bflycomputer/pond-pkgbuilds/blob/dafcae8ddf133d92c87741a31879040cdcc51512/grub/sbat.csv). GRUB 2.16 includes the November 2025 CVE patches and the September 2026 CVE patch, so our SBAT matches [upstream's current level](https://gitlab.freedesktop.org/gnu-grub/grub/-/commit/0f04137b2e127664bde4d2366d30814317d1d44c).
 
 *******************************************************************************
 ### Were old shims hashes provided to Microsoft for verification and to be added to future DBX updates?
@@ -260,11 +260,11 @@ Hint: If it does not, we are not likely to sign your shim.
 *******************************************************************************
 CONFIG_LOCK_DOWN_IN_EFI_SECURE_BOOT=y enabled at buildtime in the PKGBUILD + 3 lockdown patches from Debian.
 
-https://github.com/bflycomputer/pond-pkgbuilds/blob/main/linux-pond/patches/efi-add-an-efi_secure_boot-flag-to-indicate-secure-b.patch
+https://github.com/bflycomputer/pond-pkgbuilds/blob/dafcae8ddf133d92c87741a31879040cdcc51512/linux-pond/patches/efi-add-an-efi_secure_boot-flag-to-indicate-secure-b.patch
 
-https://github.com/bflycomputer/pond-pkgbuilds/blob/main/linux-pond/patches/efi-lock-down-the-kernel-if-booted-in-secure-boot-mo.patch
+https://github.com/bflycomputer/pond-pkgbuilds/blob/dafcae8ddf133d92c87741a31879040cdcc51512/linux-pond/patches/efi-lock-down-the-kernel-if-booted-in-secure-boot-mo.patch
 
-https://github.com/bflycomputer/pond-pkgbuilds/blob/main/linux-pond/patches/mtd-disable-slram-and-phram-when-locked-down.patch
+https://github.com/bflycomputer/pond-pkgbuilds/blob/dafcae8ddf133d92c87741a31879040cdcc51512/linux-pond/patches/mtd-disable-slram-and-phram-when-locked-down.patch
 
 *******************************************************************************
 ### Do you build your signed kernel with additional local patches? What do they do?
@@ -272,10 +272,10 @@ https://github.com/bflycomputer/pond-pkgbuilds/blob/main/linux-pond/patches/mtd-
 Yes. Selected performance tweaks, mainline backports, and hardware fixes from the CachyOS kernel (and lockdown patches of course).
 
 See patches here (7.3):
-https://github.com/bflycomputer/pond-pkgbuilds/tree/main/linux-pond/patches
+https://github.com/bflycomputer/pond-pkgbuilds/tree/dafcae8ddf133d92c87741a31879040cdcc51512/linux-pond/patches
 
 LTS (6.18) kernel contains mainline patches + a subset of the 7.3 patches:
-https://github.com/bflycomputer/pond-pkgbuilds/tree/main/linux-pond-lts/patches
+https://github.com/bflycomputer/pond-pkgbuilds/tree/dafcae8ddf133d92c87741a31879040cdcc51512/linux-pond-lts/patches
 
 NVIDIA's open kernel modules (out of tree) are built with the kernel, signed with the same ephemeral key.
 
@@ -396,7 +396,7 @@ GRUB:
 ```
 sbat,1,SBAT Version,sbat,1,https://github.com/rhboot/shim/blob/main/SBAT.md
 grub,7,Free Software Foundation,grub,2.16,https://www.gnu.org/software/grub/
-grub.pond,1,Pond,grub,2:2.16-1,mail:security@butterfly.so
+grub.pond,1,Pond,grub,2:2.16-1,mailto:security@butterfly.so
 ```
 
 *******************************************************************************
@@ -424,18 +424,18 @@ We do not use systemd-boot.
 *******************************************************************************
 Upstream GRUB 2.16
 
-https://github.com/bflycomputer/pond-pkgbuilds/tree/main/grub
+https://github.com/bflycomputer/pond-pkgbuilds/tree/dafcae8ddf133d92c87741a31879040cdcc51512/grub
 
 Our grub is based off of the Arch Linux PKGBUILD, modified for secure boot. It contains 3 benign patches for configuration from Arch:
 
-[0001: let /etc/default/grub set menu colours](https://github.com/bflycomputer/pond-pkgbuilds/blob/main/grub/0001-00_header-add-GRUB_COLOR_-variables.patch)
+[0001: let /etc/default/grub set menu colours](https://github.com/bflycomputer/pond-pkgbuilds/blob/dafcae8ddf133d92c87741a31879040cdcc51512/grub/0001-00_header-add-GRUB_COLOR_-variables.patch)
 
-[0002: for config generator to recognize Arch initramfs file names](https://github.com/bflycomputer/pond-pkgbuilds/blob/main/grub/0002-10_linux-detect-archlinux-initramfs.patch)
+[0002: for config generator to recognize Arch initramfs file names](https://github.com/bflycomputer/pond-pkgbuilds/blob/dafcae8ddf133d92c87741a31879040cdcc51512/grub/0002-10_linux-detect-archlinux-initramfs.patch)
 
-[0003: adds /etc/default/grub.d/ as a config source](https://github.com/bflycomputer/pond-pkgbuilds/blob/main/grub/0003-support-dropins-for-default-configuration.patch)
+[0003: adds /etc/default/grub.d/ as a config source](https://github.com/bflycomputer/pond-pkgbuilds/blob/dafcae8ddf133d92c87741a31879040cdcc51512/grub/0003-support-dropins-for-default-configuration.patch)
 
 
-It also bundles a [font](https://github.com/bflycomputer/pond-pkgbuilds/blob/main/grub/onest-21.pf2) for the grub theme.
+It also bundles a [font](https://github.com/bflycomputer/pond-pkgbuilds/blob/dafcae8ddf133d92c87741a31879040cdcc51512/grub/onest-21.pf2) for the grub theme.
 
 *******************************************************************************
 ### If your shim launches any other components apart from your bootloader, please provide further details on what is launched.
